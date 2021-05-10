@@ -4,9 +4,7 @@ import { Link } from 'react-router-dom';
 import { FiLogIn } from 'react-icons/fi';
 
 import './styles.scss';
-
 import logo from '../../assets/logo-clickfiscal.webp'
-
 
 function Login () {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -25,7 +23,6 @@ function Login () {
 
   const emailInput = useRef(null);
   const passwordInput = useRef(null);
-
 
   function login(e) {
     e.preventDefault();
