@@ -14,8 +14,6 @@ function Home () {
   const user = JSON.parse(localStorage.getItem('user'));
   const history = useHistory();
 
-  console.log(user)
-
   if (user === null) {
     history.push('/');
     window.location.reload();
