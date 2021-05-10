@@ -47,7 +47,9 @@ function Login () {
     if (valid === true) {
       const myHeaders = new Headers({
         'Content-Type': 'application/json',
-        'x-api-key': process.env.REACT_APP_API_KEY
+        'x-api-key': process.env.REACT_APP_API_KEY,
+        "Access-Control-Allow-Origin": '*'
+
       })
 
       const body = {
