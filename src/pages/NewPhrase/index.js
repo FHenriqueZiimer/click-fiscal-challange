@@ -26,7 +26,6 @@ function NewPhrase () {
 
     let valid = true;
 
-
     if(phrase.replace(/^\s+|\s+$|\s+(?=\s)/g, "") === '') {
       valid = false;
       phraseInput.current.style.borderColor = 'red';
@@ -41,7 +40,7 @@ function NewPhrase () {
 
       const body = {
         phrase: phrase,
-        user_id: user.data.id
+        user_id: user.id
       }
 
       fetch(`${process.env.REACT_APP_API_LINK}/phrases/create`, {
