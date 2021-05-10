@@ -65,7 +65,7 @@ function Home () {
         fetch(`${process.env.REACT_APP_API_LINK}/phrases/delete/${phraseId}`, {
           method: 'DELETE',
           body: JSON.stringify({
-            userId: user.data.id 
+            userId: user.id 
           }),
           headers: myHeaders,
         }).then(res => res.json())
