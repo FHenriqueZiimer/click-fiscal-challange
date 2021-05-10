@@ -22,7 +22,6 @@ function Home () {
   const [allPhrase, setAllPhrase] = useState([]);
   const [showHomeMenu, setShowHomeMenu] = useState(false);
 
-
   useEffect(() => {
     const myHeaders = new Headers({
       'Content-Type': 'application/json',
