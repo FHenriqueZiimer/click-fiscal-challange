@@ -14,18 +14,13 @@ function Home () {
   const user = JSON.parse(localStorage.getItem('user'));
   const history = useHistory();
 
-  if (user === null) {
-    history.push('/');
-    window.location.reload();
-  }
-
   const [allPhrase, setAllPhrase] = useState([]);
   const [showHomeMenu, setShowHomeMenu] = useState(false);
 
   useEffect(() => {
     const myHeaders = new Headers({
       'Content-Type': 'application/json',
-      'x-api-key': process.env.REACT_APP_API_KEY
+      'x-api-key': JSON.parse(localStorage.getItem('token'))
     })
 
     fetch(`${process.env.REACT_APP_API_LINK}/phrases/`, {
@@ -59,7 +54,7 @@ function Home () {
       if (result.isConfirmed) {
         const myHeaders = new Headers({
           'Content-Type': 'application/json',
-          'x-api-key': process.env.REACT_APP_API_KEY
+          'x-api-key': JSON.parse(localStorage.getItem('token'))
         })
    
         fetch(`${process.env.REACT_APP_API_LINK}/phrases/delete/${phraseId}`, {
@@ -127,12 +122,12 @@ function Home () {
                 <AiOutlineFileGif size={25} />
               </button>
             </li>
-            : <> Você ainda não possui frases Criadas </>
+            : <> </>
           ))}
         </ul>
         </>
       )}
-        <h1>Todas Frases criadas<strong>{}</strong></h1>
+        <h1>Todas Frases criadas</h1>
         <ul>
           {allPhrase.map(phrase => (
             <li key={phrase.id}>

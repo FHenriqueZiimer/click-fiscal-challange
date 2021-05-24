@@ -7,13 +7,7 @@ import './styles.scss';
 import logo from '../../assets/logo-clickfiscal.webp'
 
 function Login () {
-  const user = JSON.parse(localStorage.getItem('user'));
   const history = useHistory();
-
-  if (user !== null) {
-    history.push('/home');
-    window.location.reload();
-  }
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -44,7 +38,6 @@ function Login () {
     if (valid === true) {
       const myHeaders = new Headers({
         'Content-Type': 'application/json',
-        'x-api-key': process.env.REACT_APP_API_KEY,
       })
 
       const body = {
@@ -67,6 +60,7 @@ function Login () {
             }
           }
           if(response.statusCode === 200) {
+            localStorage.setItem('token', JSON.stringify(response.token));
             localStorage.setItem('user', JSON.stringify(response.data));    
             history.push('/home');
           }
